@@ -244,6 +244,20 @@ const LiveEvents = () => {
                                                 <span>{event.location}</span>
                                             </div>
                                         </div>
+                                        <div className="card-footer-action" style={{ marginTop: '1.5rem', borderTop: '1px solid var(--border)', paddingTop: '1rem' }}>
+                                            <button
+                                                className="btn btn-outline btn-sm"
+                                                style={{
+                                                    width: '100%',
+                                                    color: 'var(--primary)',
+                                                    borderColor: 'rgba(15, 81, 86, 0.2)',
+                                                    background: 'var(--surface-alt)'
+                                                }}
+                                                onClick={() => alert(`${event.title} detayları yakında!`)}
+                                            >
+                                                Detayları Gör
+                                            </button>
+                                        </div>
                                     </div>
                                 </motion.div>
                             ))}

@@ -51,6 +51,7 @@ const Hero = () => {
     });
 
     const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+    const [logoSize, setLogoSize] = useState(window.innerWidth < 768 ? 180 : 240);
     const videos = [
         "https://projetest.trtek.tr/wp-content/uploads//21758-321309738-1.mp4",
         "/video2.mp4"
@@ -61,6 +62,11 @@ const Hero = () => {
     };
 
     useEffect(() => {
+        const handleResize = () => {
+            setLogoSize(window.innerWidth < 768 ? 180 : 240);
+        };
+        window.addEventListener('resize', handleResize);
+
         const eventDate = new Date('April 21, 2026 10:00:00').getTime();
 
         const interval = setInterval(() => {
@@ -80,7 +86,10 @@ const Hero = () => {
             });
         }, 1000);
 
-        return () => clearInterval(interval);
+        return () => {
+            clearInterval(interval);
+            window.removeEventListener('resize', handleResize);
+        };
     }, []);
 
     return (
@@ -112,7 +121,7 @@ const Hero = () => {
                         transition={{ duration: 1, type: "spring", bounce: 0.3 }}
                         className="hero-logo-outer"
                     >
-                        <GlassLogo size={240} />
+                        <GlassLogo size={logoSize} />
                     </motion.div>
 
                     <motion.div

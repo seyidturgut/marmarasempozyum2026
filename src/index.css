@@ -127,7 +127,96 @@ nav a:hover {
 }
 
 @media (max-width: 768px) {
-  nav {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    padding: 10px;
+    width: 44px;
+    height: 44px;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .hamburger-box {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 100%;
+    height: 2px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+
+  .mobile-nav-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--primary) !important;
+    z-index: 9998;
+    display: flex;
+    flex-direction: column;
+    padding: 80px 2rem 2rem;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  .mobile-nav {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mobile-nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 1rem;
+  }
+
+  .mobile-nav ul li a {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    opacity: 0.9;
+  }
+
+  .mobile-nav ul li a:hover {
+    color: var(--secondary);
+    opacity: 1;
+  }
+
+  .mobile-nav-footer {
+    margin-top: auto;
+    padding-bottom: 2rem;
+  }
+
+  .mobile-nav-footer .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-menu-toggle {
     display: none;
   }
 }
@@ -145,6 +234,32 @@ nav a:hover {
   text-align: center;
   overflow: hidden;
   padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    height: 75vh;
+    padding-top: 4rem;
+  }
+
+  .hero-logo-outer {
+    height: 180px !important;
+  }
+
+  .h1-compact {
+    font-size: 2rem !important;
+  }
+
+  .p-compact {
+    font-size: 0.95rem !important;
+    padding: 0 1rem;
+  }
+
+  .hero-actions-compact {
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+  }
 }
 
 .hero-video {
@@ -243,6 +358,38 @@ nav a:hover {
   justify-content: center;
   gap: 1rem;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .countdown-frame-compact {
+    margin-top: -3rem;
+    padding: 2rem 1.5rem;
+    width: calc(100% - 2rem);
+    border-radius: 24px;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .countdown-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    width: 100%;
+  }
+
+  .countdown-item-compact {
+    max-width: none;
+    aspect-ratio: 1;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .count-val-compact {
+    font-size: 2.2rem;
+  }
+
+  .count-label-compact {
+    font-size: 0.7rem;
+  }
 }
 
 .countdown-item-compact {
@@ -403,6 +550,24 @@ nav a:hover {
   text-align: center;
   max-width: 700px;
   margin: 0 auto 3rem;
+  position: relative;
+  z-index: 20;
+}
+
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+    z-index: 20;
+  }
+
+  .section-title {
+    font-size: 1.75rem !important;
+  }
+
+  .section-subtitle {
+    font-size: 1rem !important;
+  }
 }
 
 .section-title {
@@ -429,6 +594,26 @@ nav a:hover {
   grid-template-columns: 1.1fr 0.9fr;
   gap: 2.5rem;
   align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .about-layout {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2rem;
+  }
+
+  .about-text-content {
+    text-align: center;
+  }
+
+  .display-title {
+    font-size: 1.75rem;
+  }
+
+  .lead-text {
+    font-size: 1rem;
+  }
 }
 
 .about-text-content {
@@ -987,6 +1172,16 @@ nav a:hover {
   justify-content: center;
   gap: 1.5rem;
   margin: 3rem 0 0;
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+@media (max-width: 640px) {
+  .filter-tabs {
+    gap: 0.75rem;
+    margin-top: 2rem;
+  }
 }
 
 .filter-tab {
@@ -1002,6 +1197,21 @@ nav a:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   position: relative;
   outline: none;
+  z-index: 31;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (max-width: 640px) {
+  .filter-tab {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .filter-tab:hover {
@@ -1148,8 +1358,24 @@ nav a:hover {
   right: -25px;
 }
 
-.program-card {
-  flex: 0 0 350px;
+@media (max-width: 768px) {
+  .program-nav-btn {
+    width: 40px;
+    height: 40px;
+    top: 35%;
+  }
+
+  .program-nav-btn.prev {
+    left: 5px;
+  }
+
+  .program-nav-btn.next {
+    right: 5px;
+  }
+}
+
+.program-item-card {
+  flex: 0 0 320px;
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -1158,6 +1384,23 @@ nav a:hover {
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
+}
+
+@media (max-width: 768px) {
+  .program-item-card {
+    flex: 0 0 calc(100% - 2rem);
+    margin: 0 1rem;
+    scroll-snap-align: center;
+  }
+
+  .program-grid {
+    padding: 1rem 0 2.5rem;
+    gap: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    display: flex;
+    overflow-x: auto;
+  }
 }
 
 @media (max-width: 1200px) {
@@ -1432,7 +1675,9 @@ nav a:hover {
 
 @media (max-width: 768px) {
   .live-event-card {
-    flex: 0 0 280px;
+    flex: 0 0 calc(100% - 2rem);
+    margin: 0 1rem;
+    scroll-snap-align: center;
   }
 
   .carousel-nav-btn {
@@ -1441,6 +1686,15 @@ nav a:hover {
 
   .carousel-inner-container {
     padding: 0;
+  }
+
+  .live-carousel-container {
+    padding: 1.5rem 0;
+    gap: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    display: flex;
+    overflow-x: auto;
   }
 }
 

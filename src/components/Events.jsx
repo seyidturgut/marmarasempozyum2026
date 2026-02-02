@@ -103,7 +103,7 @@ const Events = () => {
 
                     <div className="program-grid" ref={scrollRef}>
                         {filteredEvents.map((event, index) => (
-                            <div key={`${event.day}-${event.time}-${index}`} className="program-card">
+                            <div key={`${event.day}-${event.time}-${index}`} className="program-item-card">
                                 <img src={event.image} alt={event.title} className="program-card-image" />
                                 <div className="program-card-content">
                                     <div className="program-card-meta">
