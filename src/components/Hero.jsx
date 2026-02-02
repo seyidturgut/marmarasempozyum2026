@@ -50,6 +50,16 @@ const Hero = () => {
         seconds: 0
     });
 
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
+    const videos = [
+        "https://projetest.trtek.tr/wp-content/uploads//21758-321309738-1.mp4",
+        "/video2.mp4"
+    ];
+
+    const handleVideoEnd = () => {
+        setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    };
+
     useEffect(() => {
         const eventDate = new Date('April 21, 2026 10:00:00').getTime();
 
@@ -83,8 +93,15 @@ const Hero = () => {
                     className="hero-video-wrapper"
                     style={{ position: 'absolute', inset: 0, zIndex: -2 }}
                 >
-                    <video autoPlay muted loop playsInline className="hero-video">
-                        <source src="https://projetest.trtek.tr/wp-content/uploads//21758-321309738-1.mp4" type="video/mp4" />
+                    <video
+                        key={videos[currentVideoIndex]}
+                        autoPlay
+                        muted
+                        onEnded={handleVideoEnd}
+                        playsInline
+                        className="hero-video"
+                    >
+                        <source src={videos[currentVideoIndex]} type="video/mp4" />
                     </video>
                 </motion.div>
                 <div className="hero-overlay"></div>
