@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="tr">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/png" id="favicon" href="/cropped-marmaralogo.png" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marmara Sürdürülebilir Çevre Sempozyumu 2026</title>
+  <script>
+    // Rotating Favicon Logic
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const ctx = canvas.getContext('2d');
+    const img = new Image();
+    img.src = '/cropped-marmaralogo.png';
+
+    let angle = 0;
+    img.onload = () => {
+      setInterval(() => {
+        ctx.clearRect(0, 0, 32, 32);
+        ctx.save();
+        ctx.translate(16, 16);
+        ctx.rotate((angle * Math.PI) / 180);
+        ctx.drawImage(img, -16, -16, 32, 32);
+        ctx.restore();
+
+        document.getElementById('favicon').href = canvas.toDataURL('image/png');
+        angle = (angle + 10) % 360;
+      }, 100);
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.20.3/TweenMax.min.js"></script>
+  <script
+    src="https://rawcdn.githack.com/edankwan/PerspectiveTransform.js/master/dist/PerspectiveTransform.min.js"></script>
+  <script type="module" src="/src/main.jsx"></script>
+</body>
+
+</html>
