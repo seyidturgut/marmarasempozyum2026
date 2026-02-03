@@ -82,25 +82,28 @@ const Header = () => {
                 >
                     <div className="hamburger-box">
                         <motion.span
+                            initial={false}
                             animate={{
                                 rotate: isMenuOpen ? 45 : 0,
                                 y: isMenuOpen ? 8 : 0,
-                                backgroundColor: isMenuOpen ? '#ffffff' : (isScrolled ? 'var(--primary)' : '#ffffff')
+                                backgroundColor: isMenuOpen ? '#ffffff' : (isScrolled ? '#0f5156' : '#ffffff')
                             }}
                             className="hamburger-line"
                         />
                         <motion.span
+                            initial={false}
                             animate={{
                                 opacity: isMenuOpen ? 0 : 1,
-                                backgroundColor: isScrolled ? 'var(--primary)' : '#ffffff'
+                                backgroundColor: isScrolled ? '#0f5156' : '#ffffff'
                             }}
                             className="hamburger-line"
                         />
                         <motion.span
+                            initial={false}
                             animate={{
                                 rotate: isMenuOpen ? -45 : 0,
                                 y: isMenuOpen ? -8 : 0,
-                                backgroundColor: isMenuOpen ? '#ffffff' : (isScrolled ? 'var(--primary)' : '#ffffff')
+                                backgroundColor: isMenuOpen ? '#ffffff' : (isScrolled ? '#0f5156' : '#ffffff')
                             }}
                             className="hamburger-line"
                         />
