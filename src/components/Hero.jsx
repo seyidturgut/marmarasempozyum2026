@@ -5,7 +5,7 @@ import { Calendar } from 'lucide-react';
 
 const LiquidLoader = ({ fill = "var(--secondary)", delay = 0 }) => {
     return (
-        <div className="liquid-container">
+        <div className="liquid-container" style={{ overflow: 'hidden' }}>
             <svg viewBox="0 0 100 100" preserveAspectRatio="none" className="liquid-svg">
                 <defs>
                     <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">

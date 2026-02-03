@@ -23,7 +23,7 @@ const About = () => {
     };
 
     return (
-        <section id="hakkimizda" className="section-py overflow-hidden" style={{ background: '#ffffff', position: 'relative' }}>
+        <section id="hakkimizda" className="section access-modern" style={{ background: '#ffffff', position: 'relative', overflow: 'hidden' }}>
             <div className="decorative-blob"></div>
 
             <div className="container">

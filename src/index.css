@@ -1,3 +1,12 @@
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+
 :root {
   --primary: #0f5156;
   --primary-light: #188d8d;
@@ -210,10 +219,13 @@ nav a:hover {
     padding-bottom: 2rem;
   }
 
-  .mobile-nav-footer .btn {
+  .mobile-nav-footer .container {
     width: 100%;
-    padding: 1rem;
-    font-size: 1.1rem;
+    max-width: 100vw;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    margin: 0 auto;
+    overflow: hidden;
   }
 }
 
@@ -224,18 +236,31 @@ nav a:hover {
 }
 
 /* Hero */
-/* Hero Modern & Compact */
+@media (max-width: 480px) {
+  .logo-text-top {
+    font-size: 1rem;
+  }
+
+  .logo-text-bottom {
+    font-size: 0.65rem;
+  }
+
+  .header-inner {
+    gap: 0.5rem;
+  }
+}
+
 .hero {
   position: relative;
-  height: 85vh;
-  min-height: 500px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
   text-align: center;
   overflow: hidden;
-  padding-top: 2rem;
+  /* Constrain video and overlays */
+  padding: 8rem 0 4rem;
 }
 
 @media (max-width: 768px) {
@@ -366,9 +391,12 @@ nav a:hover {
   .countdown-frame-compact {
     margin-top: -3rem;
     padding: 2rem 1.5rem;
-    width: calc(100% - 2rem);
+    width: calc(100% - 3rem);
+    /* Ensure padding on both sides */
+    max-width: calc(100vw - 3rem);
     border-radius: 24px;
     box-shadow: var(--shadow-lg);
+    margin-inline: auto;
   }
 
   .countdown-grid-compact {
@@ -797,6 +825,10 @@ nav a:hover {
 
 .visual-premium-container {
   position: relative;
+  z-index: 1;
+  max-width: 100%;
+  overflow: hidden;
+  /* Constrain video frame */
 }
 
 .video-frame-modern {
@@ -879,6 +911,15 @@ nav a:hover {
   background: radial-gradient(circle, rgba(45, 212, 191, 0.15) 0%, transparent 70%);
   z-index: 1;
   filter: blur(60px);
+  pointer-events: none;
+}
+
+@media (max-width: 768px) {
+  .decorative-blob {
+    width: 100%;
+    height: 100%;
+    filter: blur(40px);
+  }
 }
 
 @media (max-width: 1024px) {
@@ -1887,7 +1928,8 @@ nav a:hover {
 }
 
 .transport-title {
-  font-size: 2.25rem;
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  /* Responsive title */
   font-weight: 800;
   color: var(--primary);
 }
@@ -2079,15 +2121,23 @@ footer {
 .footer-globe-wrapper {
   position: absolute;
   top: 50%;
-  left: 70%;
-  /* Move it to the right side of the footer */
-  transform: translate(-50%, -50%);
+  right: 0;
+  left: 0;
+  transform: translateY(-50%);
   width: 100%;
   height: 100%;
   opacity: 0.15;
-  /* Subtle background effect */
   pointer-events: none;
   z-index: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .footer-globe-wrapper {
+    left: auto;
+    right: -20%;
+    width: 140%;
+  }
 }
 
 .world {
